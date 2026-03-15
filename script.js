@@ -7,7 +7,7 @@ async function main() {
     headless: true,
     args: ['--no-sandbox', '--disable-setuid-sandbox'] // required for CI
   });
-
+/*just a test*/
   const page = await browser.newPage();
   
   await page.goto('https://example.com');
