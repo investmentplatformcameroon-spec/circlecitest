@@ -1,0 +1,22 @@
+version: 2.1
+
+jobs:
+  puppeteer-test:
+    docker:
+      - image: cimg/node:lts-browsers  # has Chromium pre-installed
+    steps:
+      - checkout
+      - run:
+          name: Check RAM
+          command: free -h
+      - run:
+          name: Install dependencies
+          command: npm install puppeteer
+      - run:
+          name: Run Puppeteer script
+          command: node script.js
+
+workflows:
+  test:
+    jobs:
+      - puppeteer-test
